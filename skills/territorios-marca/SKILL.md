@@ -56,7 +56,7 @@ transicional, serif didona, slab, mono, condensada/display, script/manual.
   generación registrada en `04-territorios/GENERACIONES.json`; correcciones de a una edición local;
   descartes en `boards/<id>/descartes/`.
 - **Claude / código:** boards HTML/SVG construidos con `visuales-sin-generador` (tipos reales, gesto
-  dibujado en SVG, fotos con licencia en `FUENTES.csv`), rasterizados con `node <repo>/tools/render.mjs`.
+  dibujado en SVG, fotos de cualquier fuente con su origen en `FUENTES.csv`), rasterizados con `node <repo>/tools/render.mjs`.
 - Verificá el nombre letra por letra en cada wordmark.
 
 ## 6. Puntuar cada board

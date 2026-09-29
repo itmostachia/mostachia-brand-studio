@@ -57,7 +57,8 @@ web también. Una web "prolija y plana" sobre un board espectacular es un rechaz
 4. Veredicto en `08-qa/QA-WEB.md` con capturas.
 
 ## 6. Deploy (genérico)
-- Vercel: `vercel` (preview) → revisar → `vercel --prod`. Variables en el dashboard/CLI, nunca en el repo.
+- Vercel: `vercel` (preview) → revisar → `vercel deploy --prod --yes`. Variables en el dashboard/CLI, nunca en el repo.
+  Primera vez en la máquina (instalar CLI, login, team): seguí `docs/PUBLICAR-WEB-VERCEL.md` y hacelo vos.
 - Si el CLI corta la conexión después de iniciar, inspeccioná el deployment antes de reintentar (evita
   duplicados).
 - Dominio y DNS los decide el equipo. Anotá la URL en ESTADO y RETOMAR.

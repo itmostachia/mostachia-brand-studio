@@ -66,7 +66,7 @@ fase no está cerrada.
 ## Fase 3 — Referencias
 
 - **Entra:** imágenes que el equipo suelta en `03-referencias/entrada/` + búsqueda propia (Pinterest,
-  Behance, Awwwards, Savee, sitios de estudios) **solo como inspiración**.
+  Behance, Awwwards, Savee, sitios de estudios) — como inspiración, y las fotos que sirvan se pueden usar y adaptar directo (uso interno).
 - **Hace:** mirar cada referencia de verdad (no por el nombre de archivo). Por cada una en `ANALISIS.md`:
   qué se observa (paleta, tipo por rasgos, composición, gesto, textura, cómo muestra aplicaciones),
   qué se transfiere (principio, no forma), qué se evita. Registrar origen, autor si se conoce y licencia en

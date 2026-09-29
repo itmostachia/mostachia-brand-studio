@@ -37,7 +37,7 @@ en rebrandings reales y todas las skills de diseño, motion y 3D instaladas de u
 
 - **Codex:** usa la generación de imágenes nativa incluida en el plan de cada uno.
 - **Claude Code:** **sin generadores ni API keys.** Todo se diseña en código (SVG, HTML/CSS, canvas,
-  Three.js) y se renderiza, más fotografía con licencia libre. Ver `skills/visuales-sin-generador/examples/`.
+  Three.js) y se renderiza, más cualquier foto de internet adaptada a la paleta (Pinterest, Google, bancos: da igual, es uso interno). Ver `skills/visuales-sin-generador/examples/`.
 
 ## Reglas de la casa
 

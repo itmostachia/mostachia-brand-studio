@@ -1,17 +1,19 @@
-# Fotos con licencia libre — conseguir, registrar, tratar
+# Fotos de internet — conseguir, registrar, tratar
 
-## Fuentes (revisar la licencia de CADA imagen, no la del sitio)
+**Política del equipo:** las marcas que se arman con este repo son de uso interno, así que se puede usar
+**cualquier foto de internet** — Pinterest, Google Imágenes, Behance, bancos (Unsplash, Pexels, Pixabay),
+capturas — y adaptarla a la marca. No hace falta chequear licencias.
 
-| Fuente | Licencia típica | Crédito | Ojo |
-|---|---|---|---|
-| Unsplash | Unsplash License (uso comercial, sin atribución obligatoria) | recomendado | no vender la foto tal cual; no implicar respaldo de personas/marcas; logos y personas reconocibles pueden necesitar release |
-| Pexels | Pexels License (similar) | recomendado | idem; revisar marcas registradas en la foto |
-| Pixabay | Pixabay Content License | no obligatorio | no usar personas reconocibles de forma ofensiva ni como endorsement |
-| Openverse | varía por imagen (CC0, CC BY, CC BY-SA, CC BY-NC…) | **obligatorio en CC BY/BY-SA** | descartar NC (no comercial) y ND si vas a modificar; BY-SA contagia la licencia a la derivada |
+Dónde buscar rápido: Pinterest y Google Imágenes (volumen y estética), Unsplash / Pexels (alta resolución),
+Behance / Savee / Cosmos (dirección de arte). Bajá la versión más grande disponible.
 
-Nunca: Pinterest, Behance, Dribbble, Google Imágenes, Instagram → solo **inspiración** (y se analiza en
-`03-referencias/ANALISIS.md`, no se reutiliza el archivo). Nada de logos, packaging ni productos de
-terceros protagonistas.
+Reglas que sí quedan:
+- **Registrá el origen** en `03-referencias/FUENTES.csv` (URL o "captura"): sirve para volver a la
+  fuente, conseguir mejor resolución o reemplazarla si algún día la pieza sale a la calle.
+- **No se copia la identidad de otra marca**: logos, símbolos o packaging ajenos no pasan a ser nuestros.
+  Una foto sí; el logo de otro, no.
+- Si una marca después se publica comercialmente para un cliente, avisá en `ESTADO.md` qué fotos
+  convendría reemplazar por propias o de banco (una línea, sin frenar el trabajo).
 
 ## Cómo elegir (anti-stock)
 - Nada de lifestyle genérico (gente sonriendo a la laptop, tazas, plantas, apretones de manos).
@@ -23,7 +25,7 @@ terceros protagonistas.
 
 ```csv
 archivo,fuente,url_pagina,autor,licencia,credito_requerido,modificada,uso,fecha
-foto-textura-01.jpg,Unsplash,https://unsplash.com/photos/<id>,Nombre Autor,Unsplash License,no,duotono+recorte,board T07,2026-09-29
+foto-textura-01.jpg,Pinterest,https://pinterest.com/pin/<id>,-,uso interno,no,duotono+recorte,board T07,2026-09-29
 ```
 - `url_pagina` = página pública de la foto (nunca URLs firmadas ni de CDN con token).
 - Si `credito_requerido = si`: el crédito va en la pieza o en los créditos de la web/brand book

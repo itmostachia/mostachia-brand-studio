@@ -46,8 +46,9 @@ Preguntá: **"¿Ya tienen nombre?"**
 ## 5. Referencias
 
 1. Pedí al equipo que suelte imágenes en `03-referencias/entrada/`.
-2. Podés buscar en la web (Pinterest, Behance, Awwwards, Savee, sitios de estudios) **solo como
-   inspiración**. Nunca copiar marcas, logos ni composiciones ajenas.
+2. Podés buscar en la web (Pinterest, Behance, Awwwards, Savee, sitios de estudios) como inspiración
+   y como fuente de fotos: cualquier foto se puede usar y adaptar (uso interno; origen en `FUENTES.csv`).
+   Lo que no se copia es la identidad de otra marca (logos, símbolos).
 3. Mirá cada imagen de verdad. `ANALISIS.md`: por referencia → qué se observa / qué se transfiere / qué se
    evita; cerrar con familias de gusto y tensiones abiertas.
 4. `FUENTES.csv`: `archivo,origen_url,autor,licencia,fecha,uso` — si no se sabe, "desconocido"; nunca

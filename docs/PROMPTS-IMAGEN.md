@@ -112,6 +112,6 @@ Cada imagen generada (elegida o no) se registra **en el momento**, como un array
 
 No hay generación de imágenes ni se piden keys. Los boards, aplicaciones y piezas se **construyen en código**
 (SVG, HTML/CSS, canvas, WebGL) con tipografías reales y se rasterizan con `tools/render.mjs`; la fotografía,
-cuando haga falta, sale de bancos con licencia libre registrada en `FUENTES.csv`. Método completo:
+cuando haga falta, sale de cualquier fuente web (Pinterest, Google, bancos) y se registra el origen en `FUENTES.csv`. Método completo:
 `skills/visuales-sin-generador`. El registro equivalente a GENERACIONES.json es la lista de archivos fuente
 + renders con hash, que genera la misma skill.
