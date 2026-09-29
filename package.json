@@ -1,0 +1,23 @@
+{
+  "name": "mostachia-brand-studio",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Herramientas y plantillas para crear marcas de punta a punta: expediente, territorios, galería, exploración, kit, brand book y entrega.",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "render": "node tools/render.mjs",
+    "qa-layout": "node tools/qa-layout.mjs",
+    "nuevo-expediente": "node tools/nuevo-expediente.mjs",
+    "galeria-data": "node tools/galeria-data.mjs",
+    "build-brand-kit": "node tools/build-brand-kit.mjs",
+    "smoke": "node tests/smoke.mjs"
+  },
+  "dependencies": {
+    "playwright": "^1.55.0",
+    "sharp": "^0.34.0"
+  }
+}

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 120" width="520" height="120">
+  <!-- Logo de DEMO (placeholder). build-brand-kit.mjs lo reemplaza por el lockup real. -->
+  <circle cx="60" cy="60" r="50" fill="#3552D8"/>
+  <rect x="140" y="30" width="300" height="26" rx="13" fill="#1C1C1A"/>
+  <rect x="140" y="68" width="200" height="22" rx="11" fill="#1C1C1A" opacity=".45"/>
+</svg>

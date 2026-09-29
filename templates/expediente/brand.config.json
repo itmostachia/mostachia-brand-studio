@@ -1,0 +1,15 @@
+{
+  "slug": "{{slug}}",
+  "nombre": "{{nombre}}",
+  "eslogan": "",
+  "estado": "brief",
+  "idioma": "es-AR",
+  "runtime_imagenes": "auto",
+  "colores": [],
+  "tipografias": [],
+  "logo": {
+    "simbolo_svg": "06-kit/01_LOGOS/vector/simbolo.svg",
+    "wordmark_svg": "06-kit/01_LOGOS/vector/wordmark.svg"
+  },
+  "drive": { "cuenta": null, "carpeta_id": null }
+}

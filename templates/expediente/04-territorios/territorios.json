@@ -1,0 +1,7 @@
+{
+  "marca": "{{nombre}}",
+  "version": 1,
+  "fecha": "{{fecha}}",
+  "marco": { "formato_a": "3:4", "formato_b": "16:10", "escena_demo": "" },
+  "territorios": []
+}

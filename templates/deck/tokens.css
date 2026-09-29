@@ -1,0 +1,16 @@
+/* Tokens de DEMO para previsualizar la plantilla sola. tools/build-brand-kit.mjs reemplaza este archivo
+   por el tokens.css real de la marca (mismos nombres de variables). */
+:root {
+  --fondo: #F3F1EC;
+  --texto: #1C1C1A;
+  --acento: #3552D8;
+  --sobre-acento: #FFFFFF;
+  --superficie: #FFFFFF;
+  --oscuro: #1C1C1A;
+  --acento-sobre-oscuro: #8EA2FF;
+  --apagado: color-mix(in srgb, var(--texto) 62%, var(--fondo));
+  --linea: color-mix(in srgb, var(--texto) 16%, var(--fondo));
+  --font-display: Georgia, "Times New Roman", serif;
+  --font-texto: Arial, Helvetica, sans-serif;
+  --radio: 10px;
+}

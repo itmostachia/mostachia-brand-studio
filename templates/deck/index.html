@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1280">
+  <title>Presentación</title>
+  <!-- Reemplazá tokens.css y los logos por los del kit (06-kit/02_COLORES_Y_TIPOGRAFIA/tokens.css).
+       PDF: node tools/render.mjs index.html presentacion.pdf · QA: node tools/qa-layout.mjs index.html --selector .slide -->
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="deck.css">
+</head>
+<body>
+<main class="deck">
+  <section class="slide title">
+    <img class="logo" src="logo.svg" alt="Marca">
+    <img class="symbol" src="simbolo.svg" alt="">
+    <div><p class="kicker">Presentación · fecha</p><h1>Título de la presentación</h1><p class="lead">Subtítulo: qué vas a contar y para quién.</p></div>
+  </section>
+
+  <section class="slide section accent">
+    <span class="big">01</span><h2>Título de sección</h2>
+    <span class="num">02</span>
+  </section>
+
+  <section class="slide content">
+    <p class="kicker">Contexto</p><h2>Una idea por slide</h2>
+    <ul><li>Primer punto, concreto y corto.</li><li>Segundo punto: un dato o un ejemplo.</li><li>Tercer punto: la consecuencia.</li></ul>
+    <img class="brand" src="logo.svg" alt=""><span class="num">03</span>
+  </section>
+
+  <section class="slide bignum">
+    <div class="n">87%</div>
+    <div><p class="kicker">Dato</p><h2>Qué significa este número</h2><p class="lead">Fuente y fecha del dato, siempre.</p></div>
+    <img class="brand" src="logo.svg" alt=""><span class="num">04</span>
+  </section>
+
+  <section class="slide imgtext">
+    <div class="img"><span>Imagen · reemplazar</span></div>
+    <div class="txt"><p class="kicker">Caso</p><h2>Imagen + texto</h2><p class="lead">Usá fotos con licencia o piezas del kit; registrá la fuente.</p></div>
+    <span class="num">05</span>
+  </section>
+
+  <section class="slide quote dark">
+    <blockquote>Una cita que resume el argumento en una frase.<cite>Nombre · rol</cite></blockquote>
+    <span class="num">06</span>
+  </section>
+
+  <section class="slide closing dark">
+    <img class="logo" src="logo-blanco.svg" alt="Marca">
+    <h2>Gracias</h2><p class="lead">contacto · web</p>
+    <span class="num">07</span>
+  </section>
+</main>
+<script>
+  // Navegación con flechas en pantalla (no afecta el PDF).
+  document.addEventListener('keydown', (e) => {
+    if (!['ArrowRight', 'ArrowLeft', 'PageDown', 'PageUp'].includes(e.key)) return;
+    const slides = [...document.querySelectorAll('.slide')];
+    const i = slides.findIndex((s) => s.getBoundingClientRect().top >= -10);
+    const next = slides[Math.max(0, Math.min(slides.length - 1, i + (/Right|Down/.test(e.key) ? 1 : -1)))];
+    next.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+{
+  "marca": "Ejemplo",
+  "version": 1,
+  "fecha": "2026-01-15",
+  "marco": { "formato_a": "16:9", "formato_b": "16:9", "escena_demo": "Una cafetería de barrio que lanza su tienda online" },
+  "territorios": [
+    {
+      "id": "T01",
+      "nombre": "Cuaderno",
+      "idea": "La marca como una libreta de oficio: anotaciones, márgenes y tinta roja de corrección.",
+      "lectura": "Transmite cuidado artesanal y criterio; se diferencia de las cadenas que comunican velocidad.",
+      "anclaje": ["REF-01", "REF-04"],
+      "paleta": [
+        { "rol": "base", "nombre": "Papel", "hex": "#F4EFE6", "uso": "fondo operativo" },
+        { "rol": "surface", "nombre": "Hoja", "hex": "#FFFFFF", "uso": "tarjetas" },
+        { "rol": "ink", "nombre": "Tinta", "hex": "#1E1B18", "uso": "texto principal" },
+        { "rol": "muted", "nombre": "Grafito", "hex": "#6B6259", "uso": "texto secundario" },
+        { "rol": "line", "nombre": "Renglón", "hex": "#D9D0C3", "uso": "separadores" },
+        { "rol": "brand", "nombre": "Corrección", "hex": "#C4452D", "uso": "acento de marca" },
+        { "rol": "action", "nombre": "Tinta", "hex": "#1E1B18", "uso": "acción primaria" },
+        { "rol": "on_action", "nombre": "Papel", "hex": "#F4EFE6", "uso": "texto sobre acción" },
+        { "rol": "dark_surface", "nombre": "Cuero", "hex": "#2A2521", "uso": "fondos oscuros" },
+        { "rol": "success", "nombre": "Hoja verde", "hex": "#2F6B3F", "uso": "estado ok" },
+        { "rol": "warning", "nombre": "Ocre", "hex": "#8A5A00", "uso": "atención" },
+        { "rol": "error", "nombre": "Vino", "hex": "#8E1F3A", "uso": "error" }
+      ],
+      "pares_contraste": [
+        { "fg": "ink", "bg": "base", "uso": "texto" },
+        { "fg": "muted", "bg": "base", "uso": "texto" },
+        { "fg": "on_action", "bg": "action", "uso": "boton" },
+        { "fg": "brand", "bg": "base", "uso": "grafico" }
+      ],
+      "tipografias": [
+        { "rol": "display", "familia": "Georgia", "pesos": "700", "clasificacion": "serif", "fuente": "sistema", "licencia": "sistema (solo fixture)", "url_licencia": "" },
+        { "rol": "texto", "familia": "Arial", "pesos": "400–700", "clasificacion": "grotesk", "fuente": "sistema", "licencia": "sistema (solo fixture)", "url_licencia": "" }
+      ],
+      "simbolo": "Libreta abierta en dos tonos: página de tinta y página de corrección.",
+      "wordmark": "Serif editorial en minúsculas.",
+      "gesto": "El margen rojo de corrección.",
+      "familia_paleta": "calidos-terrosos",
+      "gramatica": ["Márgenes generosos con renglón fino", "Subrayado rojo como único acento", "Texto alineado a la izquierda, nunca centrado"],
+      "imagen": "Fotos cenitales de mesa de trabajo con luz natural lateral.",
+      "movimiento": "Subrayado que se dibuja de izquierda a derecha.",
+      "aplicaciones": [
+        { "superficie": "Post", "aplicacion": "Frase subrayada en rojo sobre papel" },
+        { "superficie": "Tarjeta", "aplicacion": "Libreta en el frente, datos en serif al dorso" }
+      ],
+      "critica": { "fortaleza": "Calidez y oficio", "riesgo": "Puede leerse anticuada", "fracaso": "Que parezca papelería", "prueba": "Se reconoce solo con el margen rojo" },
+      "archivos": { "simbolo": "boards/T01/simbolo.svg" },
+      "rubrica": { "total": 17, "detalle": { "idea": 4, "sistema": 3, "aplicacion": 3, "oficio": 4, "distincion": 3 }, "nota": "Fixture de prueba" }
+    },
+    {
+      "id": "T02",
+      "nombre": "Señal",
+      "idea": "Una señal que se propaga desde el mostrador hacia el barrio.",
+      "lectura": "Moderna y nocturna; habla a un público joven que pide por app.",
+      "anclaje": ["REF-02"],
+      "paleta": [
+        { "rol": "base", "nombre": "Noche", "hex": "#0E1A1F", "uso": "fondo operativo" },
+        { "rol": "surface", "nombre": "Panel", "hex": "#16262D", "uso": "tarjetas" },
+        { "rol": "ink", "nombre": "Niebla", "hex": "#EAF2F0", "uso": "texto principal" },
+        { "rol": "muted", "nombre": "Bruma", "hex": "#9DB0AE", "uso": "texto secundario" },
+        { "rol": "line", "nombre": "Trazo", "hex": "#2B3F46", "uso": "separadores" },
+        { "rol": "brand", "nombre": "Menta", "hex": "#7BE0B3", "uso": "acento de marca" },
+        { "rol": "action", "nombre": "Menta", "hex": "#7BE0B3", "uso": "acción primaria" },
+        { "rol": "on_action", "nombre": "Noche", "hex": "#0E1A1F", "uso": "texto sobre acción" },
+        { "rol": "dark_surface", "nombre": "Abismo", "hex": "#081014", "uso": "fondos oscuros" },
+        { "rol": "success", "nombre": "Menta", "hex": "#7BE0B3", "uso": "estado ok" },
+        { "rol": "warning", "nombre": "Ámbar", "hex": "#F2C14E", "uso": "atención" },
+        { "rol": "error", "nombre": "Coral", "hex": "#FF7A6B", "uso": "error" }
+      ],
+      "pares_contraste": [
+        { "fg": "ink", "bg": "base", "uso": "texto" },
+        { "fg": "muted", "bg": "base", "uso": "texto" },
+        { "fg": "on_action", "bg": "action", "uso": "boton" },
+        { "fg": "brand", "bg": "base", "uso": "grafico" }
+      ],
+      "tipografias": [
+        { "rol": "display", "familia": "Courier New", "pesos": "700", "clasificacion": "mono", "fuente": "sistema", "licencia": "sistema (solo fixture)", "url_licencia": "" },
+        { "rol": "texto", "familia": "Arial", "pesos": "400", "clasificacion": "grotesk", "fuente": "sistema", "licencia": "sistema (solo fixture)", "url_licencia": "" }
+      ],
+      "simbolo": "Ondas concéntricas que salen de un punto.",
+      "wordmark": "Mono en mayúsculas espaciadas.",
+      "gesto": "La onda.",
+      "familia_paleta": "oscuros-frios",
+      "gramatica": ["Ondas como divisores", "Datos en mono", "Fondo siempre oscuro"],
+      "imagen": "Fotos nocturnas con luz de neón suave.",
+      "movimiento": "Latido lento cada 4 s.",
+      "aplicaciones": [
+        { "superficie": "App", "aplicacion": "Estado del pedido como onda" }
+      ],
+      "critica": { "fortaleza": "Distinta en el rubro", "riesgo": "Fría", "fracaso": "Parece fintech", "prueba": "Funciona en la taza" },
+      "archivos": { "board": "boards/T02/board.svg", "simbolo": "boards/T02/simbolo.svg" },
+      "rubrica": { "total": 16, "detalle": { "idea": 3, "sistema": 4, "aplicacion": 3, "oficio": 3, "distincion": 3 }, "nota": "Fixture de prueba" }
+    },
+    {
+      "id": "T03",
+      "nombre": "Plaza",
+      "idea": "Formas simples que se encuentran como vecinos en una plaza.",
+      "lectura": "Alegre y comunitaria; invita a quedarse.",
+      "anclaje": ["REF-05"],
+      "paleta": [
+        { "rol": "base", "nombre": "Crema", "hex": "#FFF7E8", "uso": "fondo operativo" },
+        { "rol": "surface", "nombre": "Blanco", "hex": "#FFFFFF", "uso": "tarjetas" },
+        { "rol": "ink", "nombre": "Azul noche", "hex": "#1B2A4A", "uso": "texto principal" },
+        { "rol": "muted", "nombre": "Pizarra", "hex": "#56607A", "uso": "texto secundario" },
+        { "rol": "line", "nombre": "Arena", "hex": "#E5DCCB", "uso": "separadores" },
+        { "rol": "brand", "nombre": "Azul plaza", "hex": "#2F5BEA", "uso": "acento de marca" },
+        { "rol": "action", "nombre": "Azul plaza", "hex": "#2F5BEA", "uso": "acción primaria" },
+        { "rol": "on_action", "nombre": "Blanco", "hex": "#FFFFFF", "uso": "texto sobre acción" },
+        { "rol": "dark_surface", "nombre": "Azul noche", "hex": "#1B2A4A", "uso": "fondos oscuros" },
+        { "rol": "success", "nombre": "Pasto", "hex": "#1E7A4C", "uso": "estado ok" },
+        { "rol": "warning", "nombre": "Tostado", "hex": "#8A5300", "uso": "atención" },
+        { "rol": "error", "nombre": "Rojo", "hex": "#B3261E", "uso": "error" }
+      ],
+      "pares_contraste": [
+        { "fg": "ink", "bg": "base", "uso": "texto" },
+        { "fg": "muted", "bg": "base", "uso": "texto" },
+        { "fg": "on_action", "bg": "action", "uso": "boton" },
+        { "fg": "brand", "bg": "base", "uso": "grafico" }
+      ],
+      "tipografias": [
+        { "rol": "display", "familia": "Trebuchet MS", "pesos": "700", "clasificacion": "humanista", "fuente": "sistema", "licencia": "sistema (solo fixture)", "url_licencia": "" },
+        { "rol": "texto", "familia": "Verdana", "pesos": "400", "clasificacion": "humanista", "fuente": "sistema", "licencia": "sistema (solo fixture)", "url_licencia": "" }
+      ],
+      "simbolo": "Un cuadrado y un círculo que se tocan.",
+      "wordmark": "Humanista redondeada.",
+      "gesto": "El encuentro de dos formas.",
+      "familia_paleta": "primarios-alegres",
+      "gramatica": ["Formas geométricas plenas", "Composición en diagonal", "Mucho aire"],
+      "imagen": "Ilustración plana de personas y objetos.",
+      "movimiento": "Formas que se acercan y rebotan.",
+      "aplicaciones": [
+        { "superficie": "Cartel", "aplicacion": "Formas grandes con el horario" }
+      ],
+      "critica": { "fortaleza": "Simpática y flexible", "riesgo": "Infantil", "fracaso": "Parece jardín de infantes", "prueba": "Aguanta en blanco y negro" },
+      "archivos": { "simbolo": "boards/T03/simbolo.svg" },
+      "rubrica": { "total": 16, "detalle": { "idea": 3, "sistema": 3, "aplicacion": 4, "oficio": 3, "distincion": 3 }, "nota": "Fixture de prueba" }
+    }
+  ]
+}

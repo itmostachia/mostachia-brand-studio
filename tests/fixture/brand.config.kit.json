@@ -1,0 +1,21 @@
+{
+  "_nota": "Campos de fase kit que el smoke fusiona en el brand.config.json del expediente de prueba (ruta elegida: T01).",
+  "eslogan": "Hecho a mano, anotado con cuidado.",
+  "estado": "kit",
+  "colores": [
+    { "id": "fondo", "hex": "#F4EFE6", "rol": "fondo principal" },
+    { "id": "texto", "hex": "#1E1B18", "rol": "texto y wordmark" },
+    { "id": "acento", "hex": "#C4452D", "rol": "acento de marca, subrayado" },
+    { "id": "grafito", "hex": "#6B6259", "rol": "texto secundario" },
+    { "id": "renglon", "hex": "#D9D0C3", "rol": "separadores" },
+    { "id": "cuero", "hex": "#2A2521", "rol": "fondos oscuros" }
+  ],
+  "tipografias": [
+    { "rol": "display", "familia": "Georgia", "fuente": "sistema (solo fixture)", "licencia": "sistema" },
+    { "rol": "texto", "familia": "Arial", "fuente": "sistema (solo fixture)", "licencia": "sistema" }
+  ],
+  "logo": {
+    "simbolo_svg": "06-kit/01_LOGOS/vector/simbolo.svg",
+    "wordmark_svg": "06-kit/01_LOGOS/vector/wordmark.svg"
+  }
+}

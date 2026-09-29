@@ -1,0 +1,50 @@
+<!doctype html>
+<!-- Receta 5 + 9: flow field en canvas + grano SVG + tipografía como imagen. Marca ficticia. -->
+<html lang="es"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root{ --tinta:#10222B; --papel:#EFE7DA; --acento:#E4572E; --suave:#7FA7A3; }
+  *{margin:0;box-sizing:border-box}
+  body{width:1080px;height:1350px;background:var(--tinta);overflow:hidden;position:relative;font-family:'Fraunces',serif;color:var(--papel)}
+  canvas{position:absolute;inset:0}
+  .grano{position:absolute;inset:0;mix-blend-mode:overlay;opacity:.55;pointer-events:none}
+  .vineta{position:absolute;inset:0;background:radial-gradient(120% 90% at 30% 35%,transparent 40%,rgba(5,14,18,.75) 100%)}
+  .titulo{position:absolute;left:72px;bottom:190px;font-size:212px;line-height:.82;font-weight:300;letter-spacing:-.045em}
+  .titulo em{font-style:italic;font-weight:600;color:var(--acento)}
+  .meta{position:absolute;left:76px;right:76px;bottom:72px;display:flex;justify-content:space-between;
+        font:400 19px/1.4 'JetBrains Mono',monospace;letter-spacing:.08em;text-transform:uppercase;border-top:1px solid rgba(239,231,218,.35);padding-top:22px}
+  .sello{position:absolute;top:72px;right:72px;width:128px;height:128px}
+  .indice{position:absolute;top:84px;left:76px;font:400 19px 'JetBrains Mono',monospace;letter-spacing:.08em}
+</style></head><body>
+<canvas id="c" width="1080" height="1350"></canvas>
+<div class="vineta"></div>
+<svg class="grano" width="1080" height="1350"><filter id="g"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#g)"/></svg>
+<div class="indice">ESTUDIO NORTE — Nº 04</div>
+<svg class="sello" viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="none" stroke="#EFE7DA" stroke-width="1.5"/><path d="M50 14 L60 50 L50 86 L40 50 Z" fill="#E4572E"/><circle cx="50" cy="50" r="4" fill="#10222B"/></svg>
+<h1 class="titulo">Mapas<br>del <em>viento</em></h1>
+<div class="meta"><span>Muestra de cartografía</span><span>12 — 28 Oct</span><span>Sala 2</span></div>
+<script>
+// ruido de valor 2D con semilla fija (reproducible: mismo render cada vez)
+let s=7;const rnd=()=>(s=(s*16807)%2147483647)/2147483647;
+const P=[...Array(512)].map(rnd);
+const fade=t=>t*t*(3-2*t);
+function noise(x,y){const xi=Math.floor(x),yi=Math.floor(y),xf=x-xi,yf=y-yi;
+  const h=(a,b)=>P[((a*57+b*131)%512+512)%512];
+  const u=fade(xf),v=fade(yf);
+  return (h(xi,yi)*(1-u)+h(xi+1,yi)*u)*(1-v)+(h(xi,yi+1)*(1-u)+h(xi+1,yi+1)*u)*v;}
+const c=document.getElementById('c').getContext('2d');
+c.fillStyle='#10222B';c.fillRect(0,0,1080,1350);
+const cols=['rgba(127,167,163,.22)','rgba(239,231,218,.16)','rgba(228,87,46,.55)'];
+c.lineCap='round';
+for(let i=0;i<2600;i++){
+  let x=rnd()*1180-50,y=rnd()*1000-60;
+  const col=i%23===0?cols[2]:cols[i%2];
+  c.strokeStyle=col;c.lineWidth=col===cols[2]?1.6:0.9;
+  c.beginPath();c.moveTo(x,y);
+  for(let k=0;k<90;k++){
+    const a=noise(x*.0032,y*.0032)*Math.PI*3.2+ .6;
+    x+=Math.cos(a)*4;y+=Math.sin(a)*4;c.lineTo(x,y);
+  }
+  c.stroke();
+}
+</script></body></html>

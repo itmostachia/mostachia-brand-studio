@@ -1,0 +1,84 @@
+<!doctype html>
+<!-- Receta 1 + 2: símbolo en grilla geométrica, correcciones ópticas y prueba a 24 px / mono. Marca ficticia. -->
+<html lang="es"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+<style>
+  :root{--tinta:#10222B;--papel:#EFE7DA;--acento:#E4572E;--linea:#C9BBA6}
+  *{margin:0;box-sizing:border-box}
+  body{width:1600px;height:900px;background:var(--papel);color:var(--tinta);font-family:'Sora',sans-serif;
+       display:grid;grid-template-columns:720px 1fr;overflow:hidden}
+  .lamina{position:relative;border-right:1px solid var(--linea);display:grid;place-items:center}
+  .rotulo{font:12px/1.5 'JetBrains Mono',monospace;letter-spacing:.1em;text-transform:uppercase;opacity:.7}
+  .lamina .rotulo{position:absolute;left:40px;top:36px}
+  .lamina .cota{top:auto;bottom:36px}
+  .der{padding:36px 48px;display:grid;grid-template-rows:auto auto 1fr;align-content:center;gap:28px}
+  .fila{display:flex;align-items:flex-end;gap:44px;border-bottom:1px solid var(--linea);padding-bottom:28px}
+  .celda{display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+  .lockup{display:flex;align-items:center;gap:22px}
+  .lockup b{font-weight:600;font-size:64px;letter-spacing:-.035em}
+  .lockup b span{font-weight:300}
+  .mono{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .tile{height:190px;border-radius:6px;display:grid;place-items:center;position:relative}
+  .tile .rotulo{position:absolute;left:14px;bottom:12px}
+</style></head><body>
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <!-- Símbolo: "N" como aguja de brújula dentro de un círculo. viewBox 0 0 120 120, grilla de 12. -->
+    <symbol id="simbolo" viewBox="0 0 120 120">
+      <!-- anillo: 1 módulo = 10u. Overshoot óptico: r 55 en vez de 54 para que el círculo no se vea más chico que la aguja -->
+      <path fill-rule="evenodd" d="M60 5a55 55 0 1 1 0 110A55 55 0 0 1 60 5Zm0 11a44 44 0 1 0 0 88a44 44 0 0 0 0-88Z"/>
+      <!-- aguja en dos mitades separadas por una banda de 4u de espacio negativo.
+           Norte: sólida. Sur: contorno (hueco real con evenodd) → se lee brújula también en 1 tinta.
+           El corte está en y=56, no 60: centro óptico apenas arriba del geométrico. -->
+      <path d="M60 22 73 54 47 54Z"/>
+      <path fill-rule="evenodd" d="M47 58 73 58 60 98Z M53.2 62.5 66.8 62.5 60 83Z"/>
+    </symbol>
+    <!-- Versión reducida (≤24 px): el hueco del sur se cierra a 16 px → sur sólido, anillo más grueso, banda 8u -->
+    <symbol id="simbolo-mini" viewBox="0 0 120 120">
+      <path fill-rule="evenodd" d="M60 4a56 56 0 1 1 0 112A56 56 0 0 1 60 4Zm0 16a40 40 0 1 0 0 80a40 40 0 0 0 0-80Z"/>
+      <path d="M60 26 75 54 45 54Z"/><path d="M45 62 75 62 60 94Z"/>
+    </symbol>
+  </defs>
+</svg>
+
+<section class="lamina">
+  <span class="rotulo">01 — Construcción / grilla 12 × 12</span>
+  <svg width="610" height="516" viewBox="-12 -12 170 144">
+    <g stroke="#C9BBA6" stroke-width=".25" fill="none">
+      <!-- grilla modular -->
+      <path d="M0 0H120M0 10H120M0 20H120M0 30H120M0 40H120M0 50H120M0 60H120M0 70H120M0 80H120M0 90H120M0 100H120M0 110H120M0 120H120
+               M0 0V120M10 0V120M20 0V120M30 0V120M40 0V120M50 0V120M60 0V120M70 0V120M80 0V120M90 0V120M100 0V120M110 0V120M120 0V120"/>
+    </g>
+    <g stroke="#E4572E" stroke-width=".45" fill="none" stroke-dasharray="1.6 1.2">
+      <circle cx="60" cy="60" r="55"/><circle cx="60" cy="60" r="44"/>
+      <path d="M60 -6V126M-6 56H130M47 54 60 22 73 54"/>
+      <circle cx="60" cy="56" r="1.6" fill="#E4572E" stroke="none"/>
+    </g>
+    <use href="#simbolo" width="120" height="120" style="fill:#10222B;opacity:.9"/>
+    <g font-family="JetBrains Mono" font-size="3.4" fill="#E4572E">
+      <text x="128" y="55">centro óptico</text><text x="128" y="60">−4u</text>
+      <text x="110" y="10">overshoot</text><text x="110" y="15">r +1u</text>
+    </g>
+  </svg>
+  <span class="rotulo cota">Módulo 10u · trazo del anillo = 11u · banda negativa 4u · sur en contorno</span>
+</section>
+
+<section class="der">
+  <div class="fila">
+    <div class="celda"><div class="lockup"><svg width="92" height="92" style="fill:#10222B"><use href="#simbolo"/></svg><b>Estudio<span> Norte</span></b></div><span class="rotulo">Lockup horizontal</span></div>
+  </div>
+  <div class="fila">
+    <div class="celda"><svg width="128" height="128" style="fill:#10222B"><use href="#simbolo"/></svg><span class="rotulo">128 px</span></div>
+    <div class="celda"><svg width="48" height="48" style="fill:#10222B"><use href="#simbolo"/></svg><span class="rotulo">48</span></div>
+    <div class="celda"><svg width="24" height="24" style="fill:#10222B"><use href="#simbolo"/></svg><span class="rotulo">24</span></div>
+    <div class="celda"><svg width="16" height="16" style="fill:#10222B"><use href="#simbolo"/></svg><span class="rotulo" style="color:#E4572E">16 ✕ se cierra</span></div>
+    <div class="celda"><svg width="16" height="16" style="fill:#10222B"><use href="#simbolo-mini"/></svg><span class="rotulo">16 ✓ reducida</span></div>
+    <div class="celda"><svg width="48" height="48" style="fill:#10222B"><use href="#simbolo-mini"/></svg><span class="rotulo">reducida 48</span></div>
+  </div>
+  <div class="mono">
+    <div class="tile" style="background:#10222B"><svg width="96" height="96" style="fill:#EFE7DA"><use href="#simbolo"/></svg><span class="rotulo" style="color:#EFE7DA">Negativo</span></div>
+    <div class="tile" style="background:#E4572E"><svg width="96" height="96" style="fill:#10222B"><use href="#simbolo"/></svg><span class="rotulo">Sobre acento</span></div>
+    <div class="tile" style="background:#fff;border:1px solid #C9BBA6"><svg width="96" height="96" style="fill:#000"><use href="#simbolo"/></svg><span class="rotulo">Mono 1 tinta</span></div>
+  </div>
+</section>
+</body></html>

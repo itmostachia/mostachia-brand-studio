@@ -1,0 +1,62 @@
+/* Plantillas sociales. Todo el color y la tipografía salen de tokens.css (variables compartidas del kit). */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { font-family: var(--font-texto); color: var(--texto); background: #888; }
+.canvas { position: relative; overflow: hidden; background: var(--fondo); }
+.logo { display: block; height: auto; }
+.headline { margin: 0; font-family: var(--font-display); font-weight: 700; letter-spacing: -.02em; line-height: 1.02; }
+.sub { margin: 0; line-height: 1.35; color: var(--apagado); }
+.rule { height: 8px; background: var(--acento); border-radius: 4px; }
+.cta { display: inline-flex; align-items: center; gap: .5em; background: var(--acento); color: var(--sobre-acento); font-weight: 700; border-radius: 999px; }
+.meta { font-size: 22px; letter-spacing: .12em; text-transform: uppercase; color: var(--apagado); }
+.big-symbol { position: absolute; pointer-events: none; }
+
+/* Post 4:5 — 1080×1350 */
+.post { width: 1080px; height: 1350px; padding: 84px; display: flex; flex-direction: column; }
+.post .logo { width: 330px; }
+.post .headline { margin-top: 170px; font-size: 96px; max-width: 860px; }
+.post .rule { width: 180px; margin-top: 44px; }
+.post .sub { margin-top: 36px; font-size: 34px; max-width: 700px; }
+.post .meta { margin-top: auto; }
+.post .big-symbol { width: 520px; right: -110px; bottom: -110px; opacity: .95; }
+
+/* Story 9:16 — 1080×1920 */
+.story { width: 1080px; height: 1920px; padding: 110px 84px; background: var(--oscuro); color: var(--fondo); display: flex; flex-direction: column; }
+.story .logo { width: 360px; }
+.story .headline { margin-top: 260px; font-size: 118px; color: var(--fondo); }
+.story .sub { margin-top: 44px; font-size: 40px; color: color-mix(in srgb, var(--fondo) 72%, var(--oscuro)); max-width: 820px; }
+.story .big-symbol { width: 700px; left: 190px; top: 1020px; opacity: .9; }
+.story .cta { margin-top: auto; align-self: flex-start; font-size: 38px; padding: 30px 54px; }
+
+/* LinkedIn — 1200×627 */
+.linkedin { width: 1200px; height: 627px; display: grid; grid-template-columns: 1fr 420px; }
+.linkedin .left { padding: 64px; display: flex; flex-direction: column; }
+.linkedin .logo { width: 250px; }
+.linkedin .headline { margin-top: auto; font-size: 60px; }
+.linkedin .rule { width: 110px; height: 6px; margin-top: 26px; }
+.linkedin .sub { margin-top: 22px; font-size: 24px; max-width: 600px; }
+.linkedin .right { background: var(--acento); display: grid; place-items: center; }
+.linkedin .right img { width: 240px; }
+
+/* Slide 16:9 — 1920×1080 */
+.slide { width: 1920px; height: 1080px; padding: 110px 130px; background: var(--oscuro); color: var(--fondo); display: flex; flex-direction: column; }
+.slide .logo { width: 360px; }
+.slide .headline { margin-top: auto; font-size: 128px; max-width: 1400px; color: var(--fondo); }
+.slide .rule { width: 220px; margin-top: 50px; }
+.slide .sub { margin-top: 40px; font-size: 40px; color: color-mix(in srgb, var(--fondo) 70%, var(--oscuro)); }
+.slide .big-symbol { width: 560px; right: 120px; top: 110px; }
+
+/* Flyer A4 vertical (PDF) */
+@page { size: 210mm 297mm; margin: 0; }
+.flyer { width: 210mm; height: 297mm; display: flex; flex-direction: column; }
+.flyer .band { background: var(--acento); color: var(--sobre-acento); padding: 18mm 16mm 14mm; position: relative; overflow: hidden; }
+.flyer .band .logo { width: 62mm; }
+.flyer .band .big-symbol { width: 70mm; right: -12mm; top: -10mm; opacity: .25; }
+.flyer .body { flex: 1; padding: 16mm; display: flex; flex-direction: column; }
+.flyer .headline { font-size: 34pt; }
+.flyer .sub { margin-top: 6mm; font-size: 13pt; max-width: 150mm; }
+.flyer .features { margin-top: 12mm; display: grid; grid-template-columns: repeat(3, 1fr); gap: 6mm; }
+.flyer .features div { border-top: 1.2mm solid var(--acento); padding-top: 4mm; font-size: 11pt; line-height: 1.4; }
+.flyer .features b { display: block; font-family: var(--font-display); font-size: 14pt; margin-bottom: 2mm; }
+.flyer .foot { margin-top: auto; display: flex; justify-content: space-between; align-items: flex-end; border-top: .3mm solid var(--linea); padding-top: 5mm; font-size: 10pt; color: var(--apagado); }
+.flyer .cta { font-size: 12pt; padding: 3.5mm 7mm; }

@@ -1,0 +1,103 @@
+<!doctype html>
+<!-- Receta 6: flyer de producto "multiview" — UI construida en HTML dentro de marcos de dispositivo, en capas.
+     Sin capturas, sin generador. Marca y producto ficticios. -->
+<html lang="es"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root{--tinta:#10222B;--papel:#EFE7DA;--acento:#E4572E;--suave:#7FA7A3;--ui:#F8F5EF;--linea:#E2DACB}
+  *{margin:0;box-sizing:border-box}
+  body{width:1080px;height:1350px;overflow:hidden;position:relative;font-family:'Sora',sans-serif;color:var(--tinta);
+       background:
+         radial-gradient(60% 45% at 78% 58%,rgba(228,87,46,.35),transparent 70%),
+         radial-gradient(50% 40% at 15% 85%,rgba(127,167,163,.35),transparent 70%),
+         var(--tinta)}
+  .grano{position:absolute;inset:0;opacity:.35;mix-blend-mode:overlay}
+  .cab{position:absolute;left:72px;top:72px;right:72px;color:var(--papel)}
+  .cab .kicker{font:400 17px 'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--suave)}
+  .cab h1{font-weight:600;font-size:92px;line-height:.95;letter-spacing:-.045em;margin-top:22px}
+  .cab h1 span{color:var(--acento)}
+  .cab p{font-weight:300;font-size:25px;line-height:1.4;margin-top:22px;max-width:620px;opacity:.85}
+  /* ---------- escena en capas ---------- */
+  .escena{position:absolute;left:0;right:0;top:440px;height:780px;perspective:2200px}
+  .laptop{position:absolute;left:110px;top:40px;width:820px;transform:rotateY(-14deg) rotateX(6deg) rotateZ(-2deg);transform-style:preserve-3d}
+  .pantalla{background:#0B171D;border-radius:22px 22px 6px 6px;padding:16px;box-shadow:0 60px 120px -30px rgba(0,0,0,.7)}
+  .base{height:22px;background:linear-gradient(#C9C3B8,#8E887E);border-radius:0 0 18px 18px;margin:0 -40px;box-shadow:0 30px 40px -20px rgba(0,0,0,.6)}
+  .app{background:var(--ui);border-radius:8px;height:470px;display:grid;grid-template-columns:150px 1fr;overflow:hidden}
+  .side{background:var(--tinta);padding:20px 16px;display:flex;flex-direction:column;gap:14px}
+  .side i{display:block;height:9px;border-radius:5px;background:rgba(239,231,218,.18)}
+  .side i.on{background:var(--acento);width:70%}
+  .main{padding:22px 24px;display:grid;grid-template-rows:auto auto 1fr;gap:16px}
+  .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .kpi{background:#fff;border:1px solid var(--linea);border-radius:10px;padding:12px 14px}
+  .kpi small{font:400 10px 'JetBrains Mono',monospace;letter-spacing:.08em;opacity:.55;text-transform:uppercase}
+  .kpi b{display:block;font-size:26px;font-weight:600;letter-spacing:-.03em;margin-top:4px}
+  .kpi em{font-style:normal;font-size:11px;color:#2E8B57}
+  .grafico{background:#fff;border:1px solid var(--linea);border-radius:10px;padding:10px;display:flex}.grafico svg{height:100%}
+  .tabla{display:grid;gap:7px}
+  .tabla div{height:10px;border-radius:5px;background:var(--linea)}
+  .telefono{position:absolute;right:88px;top:170px;width:270px;height:560px;border-radius:44px;background:#0B171D;padding:11px;
+            transform:rotateY(-8deg) rotateZ(5deg);box-shadow:0 50px 90px -20px rgba(0,0,0,.75),inset 0 0 0 2px #2A3A42}
+  .tel-ui{width:100%;height:100%;border-radius:34px;background:var(--papel);overflow:hidden;position:relative;padding:48px 18px 18px}
+  .isla{position:absolute;top:12px;left:50%;width:84px;height:24px;border-radius:12px;background:#0B171D;transform:translateX(-50%)}
+  .tel-ui h4{font-size:13px;font-weight:400;opacity:.6}
+  .tel-ui h3{font-size:34px;font-weight:700;letter-spacing:-.04em;margin:4px 0 14px}
+  .anillo{display:grid;place-items:center;margin:6px 0 16px}
+  .fila{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;background:#fff;border-radius:12px;margin-bottom:8px;font-size:12px}
+  .fila b{font-weight:600}
+  .chip{position:absolute;background:var(--papel);border-radius:16px;padding:14px 18px;box-shadow:0 30px 60px -20px rgba(0,0,0,.6);
+        display:flex;gap:12px;align-items:center;font-size:15px}
+  .chip small{display:block;font:400 11px 'JetBrains Mono',monospace;opacity:.6;letter-spacing:.06em;text-transform:uppercase}
+  .dot{width:38px;height:38px;border-radius:50%;background:var(--acento);display:grid;place-items:center;color:#fff;font-weight:700}
+  .pie{position:absolute;left:72px;right:72px;bottom:56px;display:flex;justify-content:space-between;align-items:center;color:var(--papel);
+       font:400 16px 'JetBrains Mono',monospace;letter-spacing:.1em;text-transform:uppercase}
+  .cta{background:var(--acento);color:#fff;padding:16px 26px;border-radius:999px;font:600 18px 'Sora';letter-spacing:0;text-transform:none}
+</style></head><body>
+<svg class="grano" width="1080" height="1350"><filter id="g"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#g)"/></svg>
+
+<header class="cab">
+  <div class="kicker">Rumbo · tablero de operaciones</div>
+  <h1>Toda tu operación,<br>con <span>norte</span> claro.</h1>
+  <p>Ventas, stock y equipo en un solo tablero. En la compu y en el bolsillo.</p>
+</header>
+
+<div class="escena">
+  <div class="laptop">
+    <div class="pantalla"><div class="app">
+      <aside class="side"><svg width="28" height="28" viewBox="0 0 120 120" fill="#EFE7DA"><path fill-rule="evenodd" d="M60 5a55 55 0 1 1 0 110A55 55 0 0 1 60 5Zm0 11a44 44 0 1 0 0 88a44 44 0 0 0 0-88Z"/><path d="M60 22 73 54 47 54Z" fill="#E4572E"/><path d="M47 58 73 58 60 98Z"/></svg>
+        <i class="on"></i><i></i><i style="width:80%"></i><i style="width:60%"></i><i></i></aside>
+      <section class="main">
+        <div style="display:flex;justify-content:space-between;align-items:baseline"><b style="font-size:20px;letter-spacing:-.02em">Resumen de octubre</b><small style="font:11px 'JetBrains Mono';opacity:.5">ACTUALIZADO 09:41</small></div>
+        <div class="kpis">
+          <div class="kpi"><small>Ventas</small><b>$ 4,82 M</b><em>▲ 18,4 %</em></div>
+          <div class="kpi"><small>Pedidos</small><b>1.274</b><em>▲ 9,1 %</em></div>
+          <div class="kpi"><small>Ticket prom.</small><b>$ 3.785</b><em>▲ 4,2 %</em></div>
+        </div>
+        <div class="grafico">
+          <svg viewBox="0 0 560 170" width="100%" preserveAspectRatio="none">
+            <defs><linearGradient id="ar" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E4572E" stop-opacity=".35"/><stop offset="1" stop-color="#E4572E" stop-opacity="0"/></linearGradient></defs>
+            <g stroke="#E2DACB" stroke-width="1"><path d="M0 42H560M0 85H560M0 128H560"/></g>
+            <path d="M0 140 C40 130 60 118 95 120 S150 95 190 100 S250 70 290 78 S350 40 390 52 S450 30 490 22 S540 18 560 12 V170 H0Z" fill="url(#ar)"/>
+            <path d="M0 140 C40 130 60 118 95 120 S150 95 190 100 S250 70 290 78 S350 40 390 52 S450 30 490 22 S540 18 560 12" fill="none" stroke="#E4572E" stroke-width="2.5"/>
+            <path d="M0 150 C60 146 120 140 190 136 S320 120 390 112 S500 100 560 96" fill="none" stroke="#7FA7A3" stroke-width="2" stroke-dasharray="5 5"/>
+            <circle cx="490" cy="22" r="5" fill="#E4572E" stroke="#fff" stroke-width="2"/>
+          </svg>
+        </div>
+      </section>
+    </div></div>
+    <div class="base"></div>
+  </div>
+
+  <div class="telefono"><div class="tel-ui"><div class="isla"></div>
+    <h4>Hoy</h4><h3>$ 212.400</h3>
+    <div class="anillo"><svg width="150" height="150" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="#E2DACB" stroke-width="10"/><circle cx="50" cy="50" r="40" fill="none" stroke="#E4572E" stroke-width="10" stroke-linecap="round" stroke-dasharray="188 252" transform="rotate(-90 50 50)"/><text x="50" y="47" text-anchor="middle" font-family="Sora" font-weight="700" font-size="18" fill="#10222B">75%</text><text x="50" y="62" text-anchor="middle" font-family="JetBrains Mono" font-size="7" fill="#10222B" opacity=".6">DEL OBJETIVO</text></svg></div>
+    <div class="fila"><span>Sucursal Centro</span><b>$ 98.100</b></div>
+    <div class="fila"><span>Tienda online</span><b>$ 71.950</b></div>
+    <div class="fila"><span>Mayoristas</span><b>$ 42.350</b></div>
+  </div></div>
+
+  <div class="chip" style="left:60px;top:560px;transform:rotate(-3deg)"><div class="dot">↑</div><div><small>Alerta de stock</small><b>Reponer 3 productos</b></div></div>
+  <div class="chip" style="left:560px;top:20px;transform:rotate(2deg)"><div class="dot" style="background:#7FA7A3">✓</div><div><small>Equipo</small><b>12 tareas cerradas hoy</b></div></div>
+</div>
+
+<footer class="pie"><span>rumbo.app — ficticio</span><span class="cta">Probalo 14 días</span></footer>
+</body></html>

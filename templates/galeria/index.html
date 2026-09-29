@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Galería de territorios</title>
+  <link rel="stylesheet" href="galeria.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand-block">
+      <p class="eyebrow">Exploración de identidad</p>
+      <h1 id="titulo">Territorios</h1>
+    </div>
+    <nav class="tabs" aria-label="Vistas">
+      <button type="button" class="tab" data-view="explorar" aria-pressed="true">Explorar</button>
+      <button type="button" class="tab" data-view="comparar" aria-pressed="false">Comparar</button>
+      <button type="button" class="tab" data-view="notas" aria-pressed="false">Notas <span class="count" id="notas-count">0</span></button>
+    </nav>
+    <div class="actions">
+      <label class="evaluador">
+        <span>Evaluador/a</span>
+        <input id="evaluador" type="text" placeholder="Tu nombre" autocomplete="name">
+      </label>
+      <button type="button" class="btn" id="exportar">Exportar notas</button>
+      <label class="btn btn-ghost" for="importar">Importar</label>
+      <input id="importar" type="file" accept="application/json,.json" hidden>
+    </div>
+  </header>
+
+  <main id="main">
+    <section id="view-explorar" class="view" aria-label="Explorar">
+      <div class="toolbar">
+        <div class="filters" role="group" aria-label="Filtro">
+          <button type="button" class="chip" data-filter="todos" aria-pressed="true">Todos</button>
+          <button type="button" class="chip" data-filter="si" aria-pressed="false">Sí</button>
+          <button type="button" class="chip" data-filter="tal-vez" aria-pressed="false">Tal vez</button>
+          <button type="button" class="chip" data-filter="no" aria-pressed="false">No</button>
+          <button type="button" class="chip" data-filter="sin-voto" aria-pressed="false">Sin voto</button>
+        </div>
+        <p class="hint" id="storage-status"></p>
+      </div>
+      <div class="grid" id="grid"></div>
+    </section>
+
+    <section id="view-comparar" class="view" aria-label="Comparar" hidden>
+      <div class="toolbar">
+        <div class="compare-selects">
+          <label>A <select id="cmp-a"></select></label>
+          <label>B <select id="cmp-b"></select></label>
+          <button type="button" class="btn btn-ghost" id="cmp-swap" aria-label="Intercambiar">⇄</button>
+        </div>
+        <div class="filters" role="group" aria-label="Qué comparar">
+          <button type="button" class="chip" data-media="board" aria-pressed="true">Board</button>
+          <button type="button" class="chip" data-media="aplicacion" aria-pressed="false">Aplicación</button>
+        </div>
+      </div>
+      <div class="compare" id="compare"></div>
+    </section>
+
+    <section id="view-notas" class="view" aria-label="Notas" hidden>
+      <div class="toolbar"><p class="hint">Las notas se guardan en este navegador. Exportalas a JSON y adjuntalas en <code>05-eleccion/</code>.</p></div>
+      <div class="table-wrap"><table class="notes-table" id="notes-table"></table></div>
+      <label class="general-note">
+        <span>Nota general</span>
+        <textarea id="nota-general" rows="4" placeholder="Impresión general, fusiones posibles, qué falta explorar…"></textarea>
+      </label>
+    </section>
+  </main>
+
+  <dialog id="detalle" aria-labelledby="detalle-titulo">
+    <div class="detail">
+      <div class="detail-media">
+        <div class="filters media-toggle" role="group" aria-label="Vista">
+          <button type="button" class="chip" data-detail-media="board" aria-pressed="true">Board</button>
+          <button type="button" class="chip" data-detail-media="aplicacion" aria-pressed="false">Aplicación</button>
+        </div>
+        <div class="stage" id="detalle-stage" title="Clic para ampliar"></div>
+      </div>
+      <aside class="detail-info">
+        <button type="button" class="close" data-close aria-label="Cerrar">×</button>
+        <p class="eyebrow" id="detalle-id"></p>
+        <h2 id="detalle-titulo"></h2>
+        <div id="detalle-body"></div>
+        <div class="vote-block">
+          <p class="label">Tu voto</p>
+          <div class="filters" role="group" aria-label="Voto">
+            <button type="button" class="chip vote" data-vote="si">Sí</button>
+            <button type="button" class="chip vote" data-vote="tal-vez">Tal vez</button>
+            <button type="button" class="chip vote" data-vote="no">No</button>
+          </div>
+          <p class="label">Puntaje</p>
+          <div class="stars" role="group" aria-label="Puntaje de 1 a 5" id="detalle-stars"></div>
+          <label class="label" for="detalle-nota">Nota</label>
+          <textarea id="detalle-nota" rows="5" placeholder="Qué funciona, qué no, qué cambiarías…"></textarea>
+        </div>
+        <div class="detail-nav">
+          <button type="button" class="btn btn-ghost" data-step="-1">← Anterior</button>
+          <button type="button" class="btn btn-ghost" data-step="1">Siguiente →</button>
+        </div>
+      </aside>
+    </div>
+  </dialog>
+
+  <dialog class="zoom" id="zoom" aria-label="Zoom">
+    <div class="zoom-bar">
+      <span id="zoom-label"></span>
+      <div>
+        <button type="button" class="btn btn-ghost" data-zoom="-1" aria-label="Alejar">−</button>
+        <button type="button" class="btn btn-ghost" data-zoom="0">Ajustar</button>
+        <button type="button" class="btn btn-ghost" data-zoom="1" aria-label="Acercar">+</button>
+        <button type="button" class="btn" data-zoom="close">Cerrar</button>
+      </div>
+    </div>
+    <div class="zoom-canvas" id="zoom-canvas"><div class="zoom-content" id="zoom-content"></div></div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="data.js"></script>
+  <script src="galeria.js"></script>
+</body>
+</html>
